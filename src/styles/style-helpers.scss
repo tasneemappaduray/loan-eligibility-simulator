@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "sizes-and-fonts";
+
+// Use this to apply styles only on screens narrower than the chosen size (sm or md).
+@mixin respond-below($bp) {
+  @if not map.has-key(sizes-and-fonts.$breakpoints, $bp) {
+    @error 'Unknown breakpoint `#{$bp}`. Use one of: #{map.keys(sizes-and-fonts.$breakpoints)}.';
+  }
+
+  @media (width < #{map.get(sizes-and-fonts.$breakpoints, $bp)}) {
+    @content;
+  }
+}
+
+// The look shared by text boxes and dropdowns: height, border, rounded corners and hover colour.
+@mixin form-control {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 sizes-and-fonts.$space-3;
+  border: 1px solid sizes-and-fonts.$color-control-border;
+  border-radius: sizes-and-fonts.$radius-md;
+  background: sizes-and-fonts.$color-surface;
+  color: sizes-and-fonts.$color-ink;
+
+  &:hover {
+    border-color: sizes-and-fonts.$color-ink;
+  }
+}

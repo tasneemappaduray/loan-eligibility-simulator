@@ -1,0 +1,12 @@
+@use "../styles/sizes-and-fonts" as *;
+
+.heading {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.intro {
+  margin-top: $space-2;
+  margin-bottom: $space-6;
+  color: $color-muted;
+}

@@ -1,0 +1,20 @@
+@use "../styles/sizes-and-fonts" as *;
+
+.heading {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.intro {
+  margin-top: $space-2;
+  margin-bottom: $space-6;
+  color: $color-muted;
+}
+
+// The loan cards go two to a row on a wide screen, so the third one sits under the first,
+// and stack in one column on a phone.
+.loanGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(340px, 40%), 1fr));
+  gap: $space-6;
+}

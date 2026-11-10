@@ -1,0 +1,54 @@
+@use "../../styles/sizes-and-fonts" as *;
+@use "../../styles/style-helpers" as *;
+
+// The white bar across the top, which stays at the top while the page scrolls.
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: $space-4;
+  align-items: center;
+  height: $top-bar-height;
+  padding: 0 $space-6;
+  border-bottom: 1px solid $color-line;
+  background: $color-surface;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 32px;
+}
+
+.logoDivider {
+  align-self: stretch;
+  width: 1px;
+  margin: $space-4 0;
+  background: $color-line;
+}
+
+.siteLabel {
+  color: $color-ink;
+  font-weight: 700;
+}
+
+// The side menu on the left and the page on the right.
+.layoutGrid {
+  display: grid;
+  grid-template-columns: $side-menu-width 1fr;
+  align-items: start;
+
+  @include respond-below(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.content {
+  min-width: 0;
+  padding: $space-8;
+
+  @include respond-below(sm) {
+    padding: $space-6 $space-4;
+  }
+}

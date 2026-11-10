@@ -1,0 +1,81 @@
+@use "../../styles/sizes-and-fonts" as *;
+
+$track-height: 6px;
+$thumb-size: 22px;
+
+.value {
+  min-height: 1.75rem; // keeps the space when there is no number yet
+  color: $color-sky-dark;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+@mixin thumb {
+  width: $thumb-size;
+  height: $thumb-size;
+  border: 3px solid $color-sky-dark;
+  border-radius: 50%;
+  background: $color-surface;
+  box-shadow: $shadow-card;
+}
+
+// The box holds the grey track, the blue bar on top of it, and the real slider on top of both.
+.sliderBox {
+  position: relative;
+  height: 44px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    height: $track-height;
+    border-radius: $track-height;
+    background: $color-line;
+    transform: translateY(-50%);
+  }
+}
+
+// The blue part. Its width is set by the slider component.
+.blueBar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: $track-height;
+  border-radius: $track-height;
+  background: $color-sky-dark;
+  transform: translateY(-50%);
+}
+
+// The real slider is see-through, so the grey track and blue bar show through it.
+.slider {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+
+  &::-webkit-slider-runnable-track {
+    height: $track-height;
+    background: transparent;
+  }
+
+  &::-moz-range-track {
+    height: $track-height;
+    background: transparent;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+
+    margin-top: calc((#{$track-height} - #{$thumb-size}) / 2);
+    appearance: none;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+}

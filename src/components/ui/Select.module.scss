@@ -1,0 +1,32 @@
+@use "../../styles/style-helpers" as *;
+@use "../../styles/sizes-and-fonts" as *;
+
+.wrap {
+  position: relative;
+
+  // A small arrow drawn with borders, so we do not need an image.
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: $space-4;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid $color-muted;
+    border-bottom: 2px solid $color-muted;
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+  }
+}
+
+.select {
+  @include form-control;
+
+  padding-right: $space-10;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select[aria-invalid="true"] {
+  border-color: $color-danger;
+}

@@ -1,0 +1,42 @@
+// Spacing, shapes and fonts used everywhere. Colours are in colors.scss and are re-exported from here.
+@forward "colors";
+@use "colors";
+
+// How tall the top bar is, so the side panel can sit right under it
+$top-bar-height: 64px;
+$side-menu-width: 260px;
+
+// Spacing, in steps of 4px
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
+$space-10: 40px;
+
+// How round the corners are
+$radius-lg: 6px;
+$radius-md: 4px;
+
+// The shadow under cards
+$shadow-card:
+  0 1px 2px colors.$color-shadow-soft,
+  0 8px 24px colors.$color-shadow;
+
+// Font: the system font, so nothing has to be downloaded
+$font-family-base:
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  roboto,
+  "Helvetica Neue",
+  arial,
+  sans-serif;
+
+// Screen widths where the layout changes
+$breakpoints: (
+  sm: 600px,
+  md: 900px,
+);

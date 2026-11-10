@@ -1,0 +1,40 @@
+@use "../../styles/sizes-and-fonts" as *;
+
+.showHideButton {
+  min-height: 44px;
+  padding: 0 $space-3;
+  border: 0;
+  background: transparent;
+  color: $color-sky-dark;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.slidingBox {
+  overflow: auto hidden; // scroll sideways on a narrow screen, never up and down
+}
+
+.repaymentTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+
+  th,
+  td {
+    padding: $space-2;
+    border-bottom: 1px solid $color-line;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  thead th {
+    color: $color-ink;
+    font-weight: 600;
+  }
+}
+
+.amountCell {
+  text-align: right;
+}

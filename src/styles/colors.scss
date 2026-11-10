@@ -1,0 +1,38 @@
+// Every colour in the app lives here. Change one here and it changes everywhere.
+
+// The dark navy of the side panel
+$color-navy: #1f3a4d;
+$color-navy-light: #3a5d76; // a side panel item under the mouse
+
+// Light blue: bright for decoration, deeper for anything that has text on it or is text
+$color-sky: #0a9fe0;
+$color-sky-dark: #0873ad;
+$color-sky-soft: #e6f4fb;
+
+// Good, warning and error colours
+$color-good: #12a05c;
+$color-warn: #d98a00;
+$color-warn-dark: #b86e00; // dark enough to see clearly against white
+$color-danger: #c62828;
+
+// Text colours
+$color-ink: #14213d;
+$color-muted: #5f6b7e;
+
+// Page, cards and borders
+$color-page: #f4f4f4;
+$color-surface: #fff;
+$color-line: #e4e9f2;
+$color-control-border: #7c8799; // input borders: dark enough to see against white
+
+// The loader
+$color-pacman: #fffb16;
+$color-pacman-dot: #efefef;
+
+// The red of the Capitec logo: exact for decoration, a touch deeper where white text sits on it
+$color-capitec-red: #e0373a;
+$color-capitec-red-dark: #d9272d;
+
+// Shadow colours
+$color-shadow-soft: rgb(20 33 61 / 6%);
+$color-shadow: rgb(20 33 61 / 8%);

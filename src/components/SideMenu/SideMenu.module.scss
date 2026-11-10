@@ -1,0 +1,83 @@
+@use "../../styles/sizes-and-fonts" as *;
+@use "../../styles/style-helpers" as *;
+
+// A dark panel that stays put on a big screen while the page scrolls.
+.sidePanel {
+  position: sticky;
+  top: $top-bar-height;
+  height: calc(100vh - #{$top-bar-height});
+  padding: $space-4 0;
+  overflow-y: auto;
+  background: $color-navy;
+  display: flex;
+  flex-direction: column;
+
+  // On a phone it is a row of links instead.
+  @include respond-below(md) {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    padding: 0;
+    overflow: auto hidden;
+  }
+}
+
+.menuGroup {
+  display: flex;
+  flex-direction: column;
+
+  @include respond-below(md) {
+    flex-direction: row;
+  }
+}
+
+.menuGroupTitle {
+  padding: $space-4 $space-5 $space-2;
+  color: $color-line;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  @include respond-below(md) {
+    display: none;
+  }
+}
+
+.menuLink {
+  display: flex;
+  gap: $space-3;
+  align-items: center;
+  padding: $space-3 $space-5;
+  color: $color-surface;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-navy-light;
+  }
+
+  // The usual blue outline is hard to see on dark navy, so a white one is used here.
+  &:focus-visible {
+    outline-color: $color-surface;
+    outline-offset: -3px;
+  }
+}
+
+.activeMenuLink,
+.activeMenuLink:hover {
+  background: $color-sky-dark;
+}
+
+// A small, faint line at the bottom of the panel. It is left out on a phone.
+.panelFooter {
+  margin-top: auto;
+  padding: $space-4 $space-5;
+  color: $color-control-border;
+  font-size: 0.75rem;
+
+  @include respond-below(md) {
+    display: none;
+  }
+}

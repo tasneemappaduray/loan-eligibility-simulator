@@ -1,0 +1,151 @@
+@use "../../styles/sizes-and-fonts" as *;
+@use "../../styles/style-helpers" as *;
+
+$pacman-size: 60px;
+$dot-size: 12px;
+$dot-gap: 40px; // the distance between two dots, and how far the dots slide each turn
+
+// While loading, the whole right side of the page (everything beside the side menu and
+// under the top bar) is blue, with Pac-Man in the middle of it.
+.spinner {
+  position: fixed;
+  inset: $top-bar-height 0 0 $side-menu-width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-6;
+  background: $color-navy;
+
+  // On a phone the side menu is a row of links above the page, so the blue is just a block.
+  @include respond-below(md) {
+    position: static;
+    min-height: 70vh;
+  }
+}
+
+.pacmanSpinner {
+  position: relative;
+  width: 160px;
+  height: $pacman-size;
+}
+
+// The three dots slide left, one dot-gap at a time, and disappear behind Pac-Man.
+.dots {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 180px;
+  height: $pacman-size;
+  animation: slide-dots 0.5s linear infinite;
+}
+
+.firstDot,
+.secondDot,
+.thirdDot {
+  position: absolute;
+  top: 25px;
+  width: $dot-size;
+  height: $dot-size;
+  border-radius: 50%;
+  background: $color-pacman-dot;
+}
+
+.firstDot {
+  right: $dot-gap * 2;
+}
+
+.secondDot {
+  right: $dot-gap;
+}
+
+.thirdDot {
+  right: 0;
+}
+
+.pacman {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $pacman-size;
+  height: $pacman-size;
+}
+
+// Pac-Man is three yellow shapes: an upper jaw, a lower jaw and the back of his head.
+// The two jaws swing open and shut, so he chomps.
+.upperJaw,
+.lowerJaw,
+.backOfHead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $pacman-size;
+  height: $pacman-size;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: $pacman-size;
+    height: $pacman-size / 2;
+    background: $color-pacman;
+  }
+}
+
+.upperJaw {
+  animation: open-upper-jaw 0.5s infinite;
+
+  &::before {
+    top: 0;
+    border-radius: $pacman-size $pacman-size 0 0;
+  }
+}
+
+.lowerJaw {
+  animation: open-lower-jaw 0.5s infinite;
+
+  &::before {
+    bottom: 0;
+    border-radius: 0 0 $pacman-size $pacman-size;
+  }
+}
+
+.backOfHead::before {
+  bottom: 0;
+  width: $pacman-size / 2;
+  height: $pacman-size;
+  border-radius: $pacman-size 0 0 $pacman-size;
+}
+
+.eye {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-ink;
+}
+
+.loadingText {
+  color: $color-surface;
+  text-align: center;
+}
+
+@keyframes slide-dots {
+  to {
+    transform: translateX(-$dot-gap);
+  }
+}
+
+@keyframes open-upper-jaw {
+  50% {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes open-lower-jaw {
+  50% {
+    transform: rotate(45deg);
+  }
+}

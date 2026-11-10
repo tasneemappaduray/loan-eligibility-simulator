@@ -1,0 +1,45 @@
+@use "../../styles/sizes-and-fonts" as *;
+@use "../../styles/style-helpers" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  min-width: 0;
+  margin: 0;
+  padding: $space-4 $space-5 $space-5;
+  border: 1px solid $color-line;
+  border-left: 4px solid $color-sky; // the bright blue line down the left edge
+  border-radius: $radius-md;
+  background: $color-surface;
+}
+
+.sectionTitle {
+  color: $color-muted;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.twoBoxesInARow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); // minmax lets the boxes shrink to fit the card
+  gap: $space-4;
+
+  @include respond-below(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// The loan amount worked out from the price and deposit of a home loan.
+.loanAmountLine {
+  color: $color-ink;
+  font-weight: 700;
+}

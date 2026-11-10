@@ -1,0 +1,38 @@
+@use "../../styles/style-helpers" as *;
+@use "../../styles/sizes-and-fonts" as *;
+
+// The border and rounded corners are on .control, so the R or the unit sits inside the box.
+.control {
+  @include form-control;
+
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  &:focus-within {
+    outline: 3px solid $color-sky-dark;
+    outline-offset: 2px;
+  }
+}
+
+// The border turns red when the input inside is marked as having an error.
+.control:has([aria-invalid="true"]) {
+  border-color: $color-danger;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  &:focus {
+    outline: none; // the outline is shown on the whole box instead
+  }
+}
+
+.currencyOrUnitText {
+  color: $color-muted;
+}

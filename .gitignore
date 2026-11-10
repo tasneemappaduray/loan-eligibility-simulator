@@ -1,0 +1,18 @@
+# Dependencies and build output
+node_modules
+dist
+coverage
+
+# Local settings (copy .env.example to .env)
+.env
+
+# Logs
+*.log
+
+# Scratch space for tooling
+.superpowers
+
+# Editor and OS files
+.vscode
+.idea
+.DS_Store

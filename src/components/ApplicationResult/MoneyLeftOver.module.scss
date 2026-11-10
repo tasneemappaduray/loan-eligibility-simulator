@@ -1,0 +1,51 @@
+@use "../../styles/sizes-and-fonts" as *;
+@use "../../styles/style-helpers" as *;
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-2;
+  width: 100%;
+  margin: 0;
+
+  @include respond-below(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.figure {
+  padding: $space-3 $space-2;
+  border-radius: $radius-md;
+  background: $color-line;
+}
+
+.figureLabel {
+  color: $color-muted;
+  font-size: 0.75rem;
+}
+
+.figureValue {
+  margin: 0;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+// The word says good, fair or poor; the coloured underline backs it up.
+.goodAffordability,
+.fairAffordability,
+.poorAffordability {
+  text-decoration: underline 3px;
+  text-underline-offset: 4px;
+}
+
+.goodAffordability {
+  text-decoration-color: $color-good;
+}
+
+.fairAffordability {
+  text-decoration-color: $color-warn;
+}
+
+.poorAffordability {
+  text-decoration-color: $color-danger;
+}

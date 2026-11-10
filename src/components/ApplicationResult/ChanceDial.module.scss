@@ -1,0 +1,50 @@
+@use "../../styles/sizes-and-fonts" as *;
+
+$dial-size: 130px;
+$ring-width: 10px;
+
+.dial {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: $dial-size;
+  height: $dial-size;
+
+  svg {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-90deg); // start the ring at the top
+  }
+}
+
+.dialTrack,
+.dialFill {
+  fill: none;
+  stroke-width: $ring-width;
+}
+
+.dialTrack {
+  stroke: $color-line;
+}
+
+.dialFill {
+  stroke-linecap: round;
+}
+
+.dialNumber {
+  position: relative;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.lowRisk .dialFill {
+  stroke: $color-good;
+}
+
+.mediumRisk .dialFill {
+  stroke: $color-warn-dark;
+}
+
+.highRisk .dialFill {
+  stroke: $color-capitec-red;
+}

@@ -1,0 +1,96 @@
+@use "../../styles/sizes-and-fonts" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  background: $color-surface;
+}
+
+// The navy strip along the top of the card, with the picture and the loan's name.
+.cardHeader {
+  display: flex;
+  gap: $space-3;
+  align-items: center;
+  padding: $space-4 $space-6;
+  background: $color-navy;
+  color: $color-surface;
+}
+
+.cardIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $color-sky-dark;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: $space-5;
+  padding: $space-6;
+}
+
+.cardDescription {
+  color: $color-muted;
+}
+
+// The three facts sit side by side as small tiles, and wrap if the card is narrow.
+.cardFacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: $space-3;
+  margin: 0;
+}
+
+.factTile {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: $space-1;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  background: $color-sky-soft;
+}
+
+.factLabel {
+  color: $color-muted;
+  font-size: 0.875rem;
+}
+
+.factValue {
+  margin: 0;
+  color: $color-ink;
+  font-weight: 700;
+}
+
+.cardLink {
+  margin-top: auto;
+  padding: $space-3 $space-6;
+  border-radius: $radius-md;
+  background: $color-sky-dark;
+  color: $color-surface;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: $color-capitec-red-dark;
+  }
+}
